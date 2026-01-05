@@ -26,6 +26,9 @@ def init_selenium() -> WebDriver:
     if linux:
         ops.add_argument("--headless")
         ops.add_argument("--disable-gpu")
+        ops.add_argument("--no-sandbox")
+        ops.add_argument("--disable-dev-shm-usage")
+        ops.add_argument("--window-size=1024,768")
         return webdriver.Chrome(service=Service("./chromedriver"), options=ops)
     return webdriver.Chrome(service=Service("chromedriver.exe"), options=ops)
 
@@ -263,3 +266,5 @@ if __name__ == "__main__":
         logger.info("任务执行成功！")
     else:
         logger.error("登录失败！")
+
+    driver.quit()
