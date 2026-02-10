@@ -26,7 +26,6 @@ def init_selenium() -> WebDriver:
     if linux:
         ops.add_argument("--headless")
         ops.add_argument("--disable-gpu")
-        ops.add_argument("--no-sandbox")
         ops.add_argument("--disable-dev-shm-usage")
         ops.add_argument("--window-size=1024,768")
         return webdriver.Chrome(service=Service("./chromedriver"), options=ops)
